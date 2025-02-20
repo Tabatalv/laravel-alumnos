@@ -1,4 +1,4 @@
-<x-layouts.layout title="Login">
+<x-layouts.layout title="Register">
     <div class="flex flex-row justify-center items-center min-h-full bg-pink-200">
         <div class="bg-pink-100 p-4 rounded-xl">
     <form method="POST" action="{{ route('register') }}">
