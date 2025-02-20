@@ -6,7 +6,7 @@ use App\Http\Controllers\AlumnoController;
 
 Route::get('/', function () {
     return view('main');
-})->name('main');//la he querido llamar main
+})->name('main');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

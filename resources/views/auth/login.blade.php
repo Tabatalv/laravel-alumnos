@@ -1,5 +1,7 @@
-<x-guest-layout>
+<x-layouts.layout title="Login">
     <!-- Session Status -->
+    <div class="flex flex-row justify-center items-center min-h-full bg-pink-200">
+        <div class="bg-pink-100 p-4 rounded-xl">
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{ route('login') }}">
@@ -44,4 +46,6 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+        </div>
+    </div>
+</x-layouts.layout>

@@ -1,7 +1,6 @@
 <header class="hidden h-15v bg-header
 md:flex flex-row justify-between items-center
 p-3"><img class="m-4 h-16 max h-full bg-white" src="{{asset('Images/logotipo.png')}}" alt="logo">
-    <h1 class=" text-3xl text-white">GESTION CENTRO</h1>
     <div>
         @guest
             <form action="">
@@ -10,12 +9,15 @@ p-3"><img class="m-4 h-16 max h-full bg-white" src="{{asset('Images/logotipo.png
             </form>
         @endguest
         @auth
-            {{auth()->user()->name}}
+            <div class="flex flex-row items-center text-white">
+                Bienvenid@,
+            {{auth()->user()->name}} !
 
             <form action="{{route("logout")}}" method="post">
                 @csrf
-                <input type="submit" value="Logout" class="btn btn-sm mx-2 glass">
+                <input type="submit" value="Logout" class="btn btn-sm mx-2 glass text-white">
             </form>
+            </div>
         @endauth
 
     </div></header>

@@ -56,6 +56,73 @@ Una vez configurados los estilos, nos dirijimos a nuestra carpeta layouts y agre
 
 ![primer imagen](public/Images/imagen12.png)
 
+Una vez con daysiui configurado, agregamos el contenido necesario a las páginas en nuestra carpeta layout, y nos dirijimos a web.php, 
+donde estableceremos que la página de inicio será nuestro main, como se aprecia en la imagen, la establecemos con alias main.
+
+![primer imagen](public/Images/main.png)
+
+Una vez con eso configurado, queremos que al hacer login, no nos redirija a la página de login, sino que se quede en la página principal, por lo que en http/Controllers/Auth 
+ingresamos a el controller encargado de autenticar la configuracion, y en la funcion de store, cambiamos el redirect de la ruta dashboard,
+a main, utilizando el alias que le pusimos anteriormente.
+
+![primer imagen](public/Images/store.png)
 
 
+Nos dirijimos a la página login que tenemos en views/auth, y la envolvemos en <x-layouts.layout>
+conviertiendola  en un componente reutilizable de Blade.
 
+![primer imagen](public/Images/logn-lay.png)
+
+Finalizamos con cambiar el login de un boton a un enlace, y le especificamos la ruta al login.
+
+![primer imagen](public/Images/botonLogin.png)
+
+Podemos apreciar como el login ahora aparece en nuestra página principal. Todo este proceso es el mismo para que nuestra
+página register aparezca en la principal como login.
+
+![primer imagen](public/Images/loginMain.png)
+
+
+Además, cuando tengamos la sesión iniciada, queremos que nos aparezca el nombre del usuario y a la par un boton de logout, por lo que nos dirijimos al header 
+que contiene los botones de login y register, y los envolvemos con @guest, lo que significa que aparecerán solo al no estar logueados, lo cerramos
+y seguido abrimos un @auth, y dentro agregamos {{auth()->user()->name}}, lo que hace es que al estar autenticado pedira el nombre del usuario y lo mostrará, 
+posteriormente agregamos el boton de logout, especificando la ruta logout y cerramos con @endauth.
+
+
+![primer imagen](public/Images/guest.png)
+
+![primer imagen](public/Images/authLogin.png)
+
+AL hacer login, queremos que nos cambie el contenido de la página principal, por lo que nos dirijimos a views y en main creamos nuevo contenido
+y lo envolvemos en @auth, para que solo aparezca si ha iniciado sesión.
+
+![primer imagen](public/Images/contMain.png)
+
+También deseamos que al hacer login, aparezca un boton llamado alumnos y me devuelva un listado alumnos,  por lo que creamos en views una página llamada alumnos y le devolvemos 
+un h1 listado alumno, y lo envolvemos en nuestro <x-layouts.layout> para que sea un componente reutilizable de Blade. 
+
+![primer imagen](public/Images/listado.png)
+
+Procedemos a crear un controller donde crearemos la funcion que me devolverá la vista de la página alumnos.
+
+```bash
+php artisan make:controller AlumnoController
+
+```
+Dentro del controller creamos la función que me devolverá la vista de la página alumnos.
+
+![primer imagen](public/Images/alumnos.png)
+
+En routes, web.php, especificamos la ruta para llegar a alumnos, y especificamos AlumnosController y el nombre de la funcion, que devolverá la vista alumnos, y para confirmar que solo
+se muestre si el alumno está autenticado, utilizamos el middleware, que lo verificará, y le damos un alias a la ruta, alumnos.
+
+![primer imagen](public/Images/alumnosR.png)
+
+Solo nos queda crear el boton, que será un enlace donde le especificaremos la ruta alumnos, envuelto como hemos visto anteriormente, en @auth, cerrando con @endauth
+para que nos aparezca solo si ha iniciado sesión.
+
+![primer imagen](public/Images/aAlumnos.png)
+
+Podemos apreciar como funciona lo que hemos hecho previamente.
+
+![primer imagen](public/Images/alumnosFuncionando.png)
