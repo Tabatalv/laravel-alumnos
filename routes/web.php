@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\AlumnosController;
+
 
 Route::get('/', function () {
     return view('main');
@@ -19,6 +21,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/alumnos',  [AlumnoController::class, 'index'])->middleware(['auth', 'verified'])->name('alumnos');
+
+
+Route::resource('alumno',  AlumnosController::class);
 
 
 Route::view("about", "about");
