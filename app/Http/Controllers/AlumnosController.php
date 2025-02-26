@@ -24,7 +24,14 @@ class AlumnosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validar
+        //recoger los datos
+        //guardarlo en la bd
+        $datos = $request->input();
+        $alumno = new Alumno($datos);
+        $alumno->save();
+        return redirect(route("alumno.index"));
+
     }
 
     /**
@@ -41,13 +48,22 @@ class AlumnosController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        return view("alumno.edit");
+    }
+
+    public function create()
+    {
+        //
+        return view("alumno.create");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Alumno $alumno)
     {
         //
+        $alumno->delete();
+        return redirect(route("alumno.index"));
     }
 }

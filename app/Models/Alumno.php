@@ -15,4 +15,8 @@ class Alumno extends Model
     public $incrementing = false;
     public $timestamps = true;
 
+    //campo fillable me dice que campos coger en bloque, lo demás lo ignora
+
+    protected $fillable = ["nombre","apellido", "dni", "correo"];
+
 }
