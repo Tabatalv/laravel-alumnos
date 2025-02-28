@@ -17,11 +17,11 @@ p-3">
             </form>
         @endguest
         @auth
-            <div class="flex flex-row items-center text-white">
+            <div class="flex flex-row items-center ">
                 Bienvenid@,
             {{auth()->user()->name}} !
 
-            <form action="{{route("logout")}}" method="post">
+            <form action="{{route("logout")}}" method="post" class="bg-secondary">
                 @csrf
                 <input type="submit" value="Logout" class="btn btn-sm mx-2 glass text-white">
             </form>

@@ -30,8 +30,9 @@ class AlumnosController extends Controller
         $datos = $request->input();
         $alumno = new Alumno($datos);
         $alumno->save();
+        //creo una variable session status con el valor se ha guardado, luego hago de nuevo una req al servidor para que redirija
+        session()->flash("status", "Se ha creado el alumno $alumno->nombre");
         return redirect(route("alumno.index"));
-
     }
 
     /**
@@ -45,12 +46,20 @@ class AlumnosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Alumno $alumno)
     {
-        //
-        return view("alumno.edit");
+        //inpput = $nombre = $_POST["nombre"], $apellido ....
+        $alumno->update($request->input());
+        session()->flash("status", "Se ha actualizado $alumno->nombre");
+        return redirect(route("alumno.index"));
     }
 
+    public function edit(Alumno $alumno)
+    {
+        //
+        return view("alumno.edit", ["alumno" => $alumno]);
+
+    }
     public function create()
     {
         //
@@ -64,6 +73,7 @@ class AlumnosController extends Controller
     {
         //
         $alumno->delete();
+        session()->flash("status", "Se ha borrado el alumno $alumno->nombre");
         return redirect(route("alumno.index"));
     }
 }

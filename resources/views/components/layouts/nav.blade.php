@@ -8,7 +8,7 @@
     <button class="btn btn-sm btn-secondary mx-2">Noticias</button>
 
     @auth
-        <a href="{{route("alumnos")}}" class="btn btn-sm btn-secondary mx-2">Alumnos</a>
+        <a href="{{route("alumno.index")}}" class="btn btn-sm btn-secondary mx-2">Alumnos</a>
     @endauth
     </div>
 </nav>
@@ -22,7 +22,7 @@
         <button class="btn btn-sm btn-secondary mx-2">Noticias</button>
 
         @auth
-            <a href="{{route("alumnos")}}" class="btn btn-sm btn-secondary mx-2">Alumnos</a>
+            <a href="{{route("alumno.index")}}" class="btn btn-sm btn-secondary mx-2">Alumnos</a>
         @endauth
     </div>
 </nav>
