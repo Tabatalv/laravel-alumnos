@@ -14,14 +14,22 @@ class AlumnoFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+
+    public function dni():string{
+        $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+        $num = $this->faker->unique()->randomNumber(8);
+        $cif = $num."-".$letras[$num%23];
+        return $cif;
+    }
     public function definition(): array
     {
         return [
             //
             'nombre' => $this->faker->name,
             'apellido' => $this->faker->lastName,
-            'dni' => $this->faker->randomNumber(8),
-            'correo' => $this->faker->email(),
+            'dni' => $this->dni(),
+            'correo' => fake()->safeEmail(),
 
         ];
     }
