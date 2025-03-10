@@ -27,9 +27,11 @@ class StoreAlumnoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => 'required|string|min:3|max:10',
-            'dni' => ["required", "string", "size:10", "unique:alumnos,dni", "regex:/^[0-9]{8}\-[a-zA-Z]$/"],
-            'correo' => 'required|email|unique:alumnos,correo',
+            //data.attributes porque los estoy recogiendo de un json, no formulario
+            'data.attributes.nombre' => 'required|string|min:3|max:10',
+            'data.attributes.apellido' => 'required|string|min:3|max:10',
+            'data.attributes.dni' => ["required", "string", "size:10", "unique:alumnos,dni", "regex:/^[0-9]{8}\-[a-zA-Z]$/"], //verifica que no haya un dni igual en la tabla alumnos
+            'data.attributes.correo' => 'required|email|unique:alumnos,correo',
 
         ];
     }

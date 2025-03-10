@@ -130,3 +130,32 @@ para que nos aparezca solo si ha iniciado sesión.
 Podemos apreciar como funciona lo que hemos hecho previamente.
 
 ![imagen](public/Images/alumnosFuncionando.png)
+
+Pero queremos que se vea un listado de alumnos proveniente de una base de datos, por lo que podemos empezar creando la migracion junto con el nombre de la tabla, donde le especificaremos los campos que tendrá,
+para ello utilizaremos el comando:
+
+```bash
+php artisan make:migration alumnos --create alumnos
+
+```
+Luego especificamos los campos
+
+![imagen](public/Images/campos.png)
+
+
+Además creamos el modelo, el factory y el seeder, con los siguientes comandos:
+
+```bash
+php artisan make:model Alumno
+
+```
+
+```bash
+php artisan make:factory AlumnoFactory
+
+```
+
+```bash
+php artisan make:seeder AlumnoSeeder
+
+```
