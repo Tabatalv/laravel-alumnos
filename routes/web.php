@@ -20,10 +20,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/alumnos',  [AlumnoController::class, 'index'])->middleware(['auth', 'verified'])->name('alumnos');
+//Route::get('/alumno',  [AlumnosController::class, 'index'])->middleware(['auth', 'verified'])->name('alumno');
 
 
-Route::resource('alumno',  AlumnosController::class);
+Route::resource('alumno',  AlumnosController::class)->middleware(['auth', 'verified']);
 
 
 Route::view("about", "about");
