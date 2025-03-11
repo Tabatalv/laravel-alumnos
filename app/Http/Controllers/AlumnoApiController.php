@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAlumnoRequest;
+use App\Http\Requests\Api\StoreAlumnoRequest;
 use App\Http\Resources\AlumnoCollection;
 use App\Http\Resources\AlumnoResource;
 use App\Models\Alumno;
