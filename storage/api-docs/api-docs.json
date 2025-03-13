@@ -36,6 +36,103 @@
                         }
                     }
                 }
+            },
+            "put": {
+                "tags": [
+                    "Alumnos"
+                ],
+                "summary": "Actualizar datos de alumno",
+                "description": "Updates user data in the database",
+                "operationId": "updateAlumno",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "johndoe@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "123456"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User updated successfully"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Alumnos"
+                ],
+                "summary": "Crear un nuevo alumno",
+                "description": "Stores a new user in the database",
+                "operationId": "createAlumno",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "johndoe@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "123456"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "User created successfully"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Alumnos"
+                ],
+                "summary": "Eliminar un alumno",
+                "description": "Deletes a user in the database",
+                "operationId": "deleteAlumno",
+                "responses": {
+                    "200": {
+                        "description": "User deleted successfully"
+                    }
+                }
             }
         }
     },

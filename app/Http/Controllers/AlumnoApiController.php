@@ -66,9 +66,27 @@ class AlumnoApiController extends Controller
 
     }
 
+
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     *      path="/api/alumnos",
+     *      operationId="createAlumno",
+     *      tags={"Alumnos"},
+     *      summary="Crear un nuevo alumno",
+     *      description="Stores a new user in the database",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(
+     *              required={"name","email","password"},
+     *              @OA\Property(property="name", type="string", example="John Doe"),
+     *              @OA\Property(property="email", type="string", example="johndoe@example.com"),
+     *              @OA\Property(property="password", type="string", example="123456")
+     *          )
+     *      ),
+     *      @OA\Response(response=201, description="User created successfully")
+     * )
      */
+
     public function store(StoreAlumnoRequest $request)
     {
         $datos = $request->input("data.attributes");
@@ -89,6 +107,26 @@ class AlumnoApiController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
+    /**
+     * @OA\Put(
+     *      path="/api/alumnos",
+     *      operationId="updateAlumno",
+     *      tags={"Alumnos"},
+     *      summary="Actualizar datos de alumno",
+     *      description="Updates user data in the database",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(
+     *              required={"name","email","password"},
+     *              @OA\Property(property="name", type="string", example="John Doe"),
+     *              @OA\Property(property="email", type="string", example="johndoe@example.com"),
+     *              @OA\Property(property="password", type="string", example="123456")
+     *          )
+     *      ),
+     *      @OA\Response(response=200, description="User updated successfully")
+     * )
+     */
     public function update(Request $request, string $id)
     {
 
@@ -96,6 +134,18 @@ class AlumnoApiController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     */
+
+    /**
+     * @OA\Delete(
+     *      path="/api/alumnos",
+     *      operationId="deleteAlumno",
+     *      tags={"Alumnos"},
+     *      summary="Eliminar un alumno",
+     *      description="Deletes a user in the database",
+     *
+     *      @OA\Response(response=200, description="User deleted successfully")
+     * )
      */
     public function destroy(string $id)
     {
