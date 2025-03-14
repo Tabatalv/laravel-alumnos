@@ -17,6 +17,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->api(append:\App\Http\Middleware\ValidateHeaderMiddleware::class);
         $middleware->api(append:\App\Http\Middleware\SetHeaderMiddleware::class);
+        $middleware->api(append:\App\Http\Middleware\LanguageMiddleware::class);
+
+
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->render(fn(QueryException $e)=>errorQueryException($e));

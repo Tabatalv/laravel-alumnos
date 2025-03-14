@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\AlumnosController;
-
+use App\Http\Controllers\LanguageController;
 
 Route::get('/', function () {
     return view('main');
@@ -29,3 +29,6 @@ Route::resource('alumno',  AlumnosController::class)->middleware(['auth', 'verif
 Route::view("about", "about");
 Route::view("noticias", "noticias");
 require __DIR__.'/auth.php';
+
+//Route::get("language",function(){})->name("language");
+Route::get('/language', LanguageController::class)->name('language');

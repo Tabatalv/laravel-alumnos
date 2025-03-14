@@ -1,6 +1,6 @@
 <nav class="hidden md:flex h-10v bg-nav flex flex-row justify-between items-center px-4">
     <div>
-        <h3 class="text-white font-bold">Gestión Alumnos</h3>
+        <h3 class="text-white font-bold">{{__("Gestión Alumnos")}}</h3>
     </div>
     <div>
     <button class="btn btn-sm  btn-secondary mx-2">About</button>

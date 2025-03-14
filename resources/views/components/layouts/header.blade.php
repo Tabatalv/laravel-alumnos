@@ -10,6 +10,19 @@ p-3">
         </label>
 
         <div class="hidden absolute right-0 p-2 peer-checked:flex rounded-xl bg-white">
+
+            <select name="lang">
+
+                @foreach(config('langs') as $locale => $lang)
+                        <option value="">
+
+                            <a href="{{route('language', $locale)}}">{{$lang['name']}}</a>
+
+                        </option>
+                @endforeach
+
+
+            </select>
         @guest
             <form action="" class="flex flex-col">
                 <a href="{{route("login")}}" class="btn btn-secondary btn-sm">Login</a>
